@@ -24,29 +24,29 @@ _____yes 1 pt: The `Cafe` class has a `goToFloor(...)` method that doesn't permi
 
 ### Level 2: Method `Overloads` (3 pts)
 
-_____no 1 pt: The `House` class includes at least 2 overloaded methods
+_____yes 1 pt: The `House` class includes at least 2 overloaded methods
 
-_____no 1 pt: The `Library` class includes at least 2 overloaded methods
+_____yes 1 pt: The `Library` class includes at least 2 overloaded methods
 
-_____no 1 pt: The `Cafe` class includes at least 2 overloaded methods
+_____yes 1 pt: The `Cafe` class includes at least 2 overloaded methods
 
 ### Level 3: `CampusMap.java` (2 pts)
 
-_____no 1 pt: The `main(...)` method in `CampusMap.java` has been modified to include at least 10 `Building`s (or `Building` subclasses)
+_____yes 1 pt: The `main(...)` method in `CampusMap.java` has been modified to include at least 10 `Building`s (or `Building` subclasses)
 
-_____no 1 pt: The `CampusMap` includes at least one instance of each class: a `House`, a `Library`, a `Cafe`, and a `Building` (demonstrating that each constructor works as expected)
+_____yes 1 pt: The `CampusMap` includes at least one instance of each class: a `House`, a `Library`, a `Cafe`, and a `Building` (demonstrating that each constructor works as expected)
 
 
 
 ## General Items:
 
-_____no 4 pts: Programs compile without errors or warnings
+_____yes 4 pts: Programs compile without errors or warnings
 
 _____no 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
 _____ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
-      _____no Classes & class members all have Javadoc header comments
+      _____yes Classes & class members all have Javadoc header comments
 
       _____ yes Clear and consistent indentation of bracketed sections
 
@@ -54,7 +54,7 @@ _____ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
       _____yes  Methods & variables all have clear and accurate names
 
-      _____ no Methods avoid confusing side effects
+      _____ yes Methods avoid confusing side effects
 
 _____yes  1 pt: All required files included with submission (including completed `rubric.md` file)
 
