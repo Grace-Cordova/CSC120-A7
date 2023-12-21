@@ -1,4 +1,3 @@
-/* This is a stub for the Library class */
 import java.util.Enumeration;
 import java.util.Hashtable;
 
@@ -21,20 +20,18 @@ public class Library extends Building {
     /**
     *Method addTitle. Adds a book with its availability into the hash table titles collection.
    * @param   title String
-   * @param   available boolean
    * @return  none
    */
-    public void addTitle(String title, Boolean available){
+    public void addTitle(String title){
         collection.put(title, available);
     }
 
     /**
    * method removeTitle. Removes a book and its availability from the hashtable collection.
    * @param   title String
-   * @param   available boolean
    * @return  none
    */
-    public void removeTitle(String title, Boolean available){
+    public void removeTitle(String title){
         collection.remove(title, available);
     }
 
@@ -60,22 +57,23 @@ public class Library extends Building {
    * @param   title String
    * @return  none
    */
-    public void checkOut(String[] titles){
-        for (String title: titles){
-            checkOut(title);
-        }
+  public void checkOut(String title){
+    if !collection.containsKey(title){
+      throw new RuntimeException(title+" does not exist in our collection and cannot be checked out.");
     }
+    available.equals(false);
+  }
 
     /**
    * Return method. Takes in key and value. Replaces the value with true so that the book is available. Throws an exception if the book was not checked out.
    * @param   title String
    * @return  none
    */
-    public void returnBook(String title){
-        if (isAvailable(title)){
-            throw new RuntimeException("It looks like this book is already available. You can't return a book you never checked out!");
-        }
-        collection.replace(title, false, true);
+  public void returnBook(String title){
+    if collection.containsKey(title){
+      throw new RuntimeException(title+" does not exist in our collection and cannot be returned.");
+    }
+    available.equals(true);
     }
 
      /**
@@ -129,7 +127,7 @@ public class Library extends Building {
     }
 
     /**
-   * Method that shows options of what a person can do in a library. Not overridden becuase it will contain all of the same things as the showOptions method in the building class. 
+   * Method that shows options of what a person can do in a library. Not overridden because it will contain all of the same things as the showOptions method in the building class. 
    * @param   none
    * @return  none
    */
@@ -139,21 +137,7 @@ public class Library extends Building {
 
     
     public void goToFloor(int floorNum){
-        if (this.activeFloor == -1) {
-            throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
-        }
-        if (floorNum < 1 || floorNum > this.nFloors) {
-            throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
-        }
-        if (hasElevator()){
-        System.out.println("You are now on floor #" + floorNum + " of " + this.name);
-        this.activeFloor = floorNum;
-        }
-        while (activeFloor < floorNum){
-            System.out.println ("You are now on floor #"+activeFloor+" of "+this.name);
-            activeFloor += 1;
-        }
-        
+        super.goToFloor();   
     }
 
 }

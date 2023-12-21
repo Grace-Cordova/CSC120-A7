@@ -76,10 +76,14 @@ public class Cafe extends Building {
         }else if (nCreams>=this.nCreams){
             System.out.println("Unfortunately we are out of cream. Wait a moment while we restock.");
             restock(this.nCoffeeOunces, this.nSugarPackets, this.nCreams, this.nCups);
+        }}else if (nCups>=1){
+            System.out.println("Unfortunately we are out of cups. Wait a moment while we restock.");
+            restock(this.nCoffeeOunces, this.nSugarPackets, this.nCreams, this.nCups);
         }
         this.nCoffeeOunces -= size;
         this.nSugarPackets -= nSugarPackets;
         this.nCreams -= nCreams;
+        this.nCups -= 1;
     }
     /**
    * Overloaded method to sell a default cup of coffee if no parameters are given
@@ -103,6 +107,19 @@ public class Cafe extends Building {
         nSugarPackets = 50;
         nCreams = 50;
         nCups = 50;
+    }
+
+
+     /**
+   * A method to allow movement between floors. This method has been overridden because cafes do not have multipls floors for customers to pass between.
+   * @param   none
+   * @return  none
+   */
+    public void goToFloor(){
+        if (this.activeFloor == -1) {
+            throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
+        }
+        System.out.println("This is a cafe! Only the first floor is open to the public.");
     }
      /**
    * A method to show available options at the cafe. This method has been overridden because cafes do not have multipls floors for customers to pass between.

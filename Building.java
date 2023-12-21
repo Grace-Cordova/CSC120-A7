@@ -73,8 +73,14 @@ public class Building {
         if (floorNum < 1 || floorNum > this.nFloors) {
             throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
         }
+        if (hasElevator()){
         System.out.println("You are now on floor #" + floorNum + " of " + this.name);
         this.activeFloor = floorNum;
+        }
+        while (activeFloor < floorNum){
+            System.out.println ("You are now on floor #"+activeFloor+" of "+this.name);
+            activeFloor += 1;
+        }
     }
 
     public void goUp() {

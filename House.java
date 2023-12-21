@@ -45,8 +45,11 @@ public class House extends Building{
    * @param   none
    * @return  none
    */
-    public void moveIn(){
-        residents.add(this.name);
+    public void moveIn(String name){
+        if this.residents.contains(name){
+            throw new RuntimeException(name+" already lives in this house and cannot be moved in.");
+        }
+        residents.add(name);
     }
 
     /**
@@ -66,7 +69,10 @@ public class House extends Building{
    * @return  none
    */
     public void moveOut(){
-        residents.remove(this.name);
+        if !this.residents.contains(String name){
+            throw new RuntimeException(name+" does not live in this house and cannot be moved out.");
+        }
+        residents.remove(name);
     }
 
     /**
@@ -104,21 +110,8 @@ public class House extends Building{
    * @return  none
    */
     public void goToFloor(int floorNum){
-        if (this.activeFloor == -1) {
-            throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
-        }
-        if (floorNum < 1 || floorNum > this.nFloors) {
-            throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
-        }
-        if (hasElevator()){
-        System.out.println("You are now on floor #" + floorNum + " of " + this.name);
-        this.activeFloor = floorNum;
-        }
-        while (activeFloor < floorNum){
-            System.out.println ("You are now on floor #"+activeFloor+"of"+this.name);
-            activeFloor += 1;
-        }
-    }
+        super.goToFloor();
 
+    }
 }
 
